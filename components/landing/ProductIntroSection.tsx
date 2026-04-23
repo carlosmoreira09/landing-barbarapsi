@@ -40,7 +40,7 @@ export function ProductIntroSection() {
               />
               <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5]">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9211.JPG-AUntUKFWArb5u2TIROXgHuqNb3X92F.jpeg"
+                  src="/images/foto_em_pe_office.jpeg"
                   alt="Bárbara Leal Reis com laptop"
                   fill
                   className="object-cover object-top"

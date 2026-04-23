@@ -83,7 +83,7 @@ export function AboutSection() {
               />
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4]">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9927-NnnoZxoOXLIrA6WJRfqo1I5bg1572S.jpg"
+                  src="/images/foto_computador.jpeg"
                   alt="Bárbara Leal Reis, neuropsicóloga"
                   fill
                   className="object-cover object-top"

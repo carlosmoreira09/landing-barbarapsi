@@ -1,9 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
-
 const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/U104539766E"
 
 export function HeroSection() {
@@ -47,7 +46,7 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-0">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16 min-h-screen md:min-h-0 md:py-24">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 min-h-screen md:min-h-0 md:py-24">
 
           {/* Left: text content */}
           <motion.div
@@ -70,7 +69,7 @@ export function HeroSection() {
                 }}
               >
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9927-NnnoZxoOXLIrA6WJRfqo1I5bg1572S.jpg"
+                  src="/images/foto_perfeita.jpeg"
                   alt="Bárbara Leal Reis"
                   fill
                   className="object-cover object-top"
@@ -199,8 +198,9 @@ export function HeroSection() {
               />
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_7490.JPEG-KuPBdae0z4HUV7NzRDuR4L8YePZOIj.jpeg"
-                  alt="Bárbara Leal Reis, neuropsicóloga"
+
+                  src="/images/foto_perfeita.jpeg"
+                    alt="Bárbara Leal Reis, neuropsicóloga"
                   fill
                   className="object-cover object-top"
                   priority

@@ -80,23 +80,6 @@ export function StrategiesSection() {
           </div>
 
           {/* Image */}
-          <FadeIn delay={0.2} className="w-full md:w-5/12 order-1 md:order-2">
-            <div className="relative">
-              <div
-                className="absolute -inset-4 rounded-3xl -rotate-1"
-                style={{ backgroundColor: "var(--lilac-light)" }}
-              />
-              <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[3/4]">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_9210.JPG-nSqDHWQcl3XAQxb7bnDu6FYaWJDW2r.jpeg"
-                  alt="Bárbara Leal Reis em seu consultório"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </FadeIn>
         </div>
       </div>
     </section>
