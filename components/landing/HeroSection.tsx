@@ -1,218 +1,259 @@
 "use client"
 
-import { useRef } from "react"
+import { useState } from "react"
 import Image from "next/image"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
+import { Menu, Instagram } from "lucide-react"
+import { HOTMART_CHECKOUT_URL, menuCategories } from "@/lib/nav-content"
+import { NavDropdown } from "@/components/landing/NavDropdown"
+import { MobileMenu } from "@/components/landing/MobileMenu"
 import { trackCTAClick } from "@/components/GoogleAnalytics"
-const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/U104539766E"
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.11, delayChildren: 0.15 } },
+}
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  },
+}
 
 export function HeroSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"])
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
     <section
-      ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ backgroundColor: "var(--background)" }}
+      className="relative w-full min-h-dvh flex flex-col overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #0B1A3A 0%, #091228 40%, #0B1A3A 100%)" }}
     >
-      {/* Background image — blurred, low opacity, parallax */}
-      <motion.div
-        style={{ y: bgY }}
-        className="absolute inset-0 z-0 pointer-events-none"
-        aria-hidden="true"
-      >
+      {/* Background photo — right side, faded */}
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <Image
-          src="/images/hero-bg.jpg"
+          src="/images/foto_perfeita.jpeg"
           alt=""
           fill
-          className="object-cover object-center"
-          style={{ opacity: 0.13, filter: "blur(2px) saturate(0.6)" }}
+          className="object-cover object-[60%_20%] md:object-[75%_22%]"
           priority
           sizes="100vw"
         />
+        {/* Navy wash */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(11,26,58,0.97) 0%, rgba(11,26,58,0.88) 40%, rgba(11,26,58,0.55) 70%, rgba(11,26,58,0.35) 100%)",
+          }}
+        />
+        {/* Mobile: darker overlay so text reads */}
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{ background: "rgba(11,26,58,0.78)" }}
+        />
+        {/* Electric glow bottom-left */}
+        <div
+          className="absolute -bottom-40 -left-40 w-[600px] h-[600px] rounded-full opacity-30 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--electric) 0%, transparent 70%)" }}
+        />
+        {/* Electric glow top-right */}
+        <div
+          className="absolute -top-40 -right-20 w-[500px] h-[500px] rounded-full opacity-20 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--electric) 0%, transparent 70%)" }}
+        />
+      </div>
+
+      {/* Navbar */}
+      <nav
+        className="relative z-30 flex items-center justify-between px-5 md:px-10 pt-5 md:pt-7"
+        aria-label="Navegação principal"
+      >
+        {/* Logo / name */}
+        <a href="/" className="flex items-center gap-3" aria-label="Bárbara Leal Reis, página inicial">
+          <span
+            className="w-9 h-9 rounded-full flex items-center justify-center font-serif text-[15px] font-semibold text-white"
+            style={{
+              background: "linear-gradient(135deg, var(--electric), #1E3A8A)",
+              boxShadow: "0 4px 16px var(--electric-glow)",
+            }}
+          >
+            B
+          </span>
+          <div className="hidden sm:flex flex-col leading-tight">
+            <span className="font-serif text-[15px] text-white">Bárbara Leal Reis</span>
+            <span className="font-sans text-[10.5px] tracking-[0.18em] uppercase text-white/55">
+              Neuropsicóloga · CRP 05/56240
+            </span>
+          </div>
+        </a>
+
+        {/* Center dropdowns — desktop only */}
+        <div className="hidden md:flex items-center gap-9">
+          {menuCategories.map((cat) => (
+            <NavDropdown key={cat.id} category={cat} />
+          ))}
+        </div>
+
+        {/* Right: CTA + mobile toggle */}
+        <div className="flex items-center gap-3">
+          <a
+            href="https://instagram.com/psi.barbarareis"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram @psi.barbarareis"
+            className="hidden md:flex text-white/70 hover:text-white transition-colors"
+          >
+            <Instagram size={18} strokeWidth={1.5} />
+          </a>
+          <a
+            href={HOTMART_CHECKOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackCTAClick("Navbar - Quero o guia", HOTMART_CHECKOUT_URL)}
+            className="hidden md:inline-flex items-center font-sans font-semibold text-[12px] tracking-wide px-5 py-2.5 rounded-full text-white transition-all duration-300 hover:scale-[1.04]"
+            style={{
+              backgroundColor: "var(--electric)",
+              boxShadow: "0 6px 20px var(--electric-glow)",
+            }}
+          >
+            Quero o guia
+          </a>
+          <button
+            onClick={() => setMobileOpen(true)}
+            className="md:hidden w-10 h-10 rounded-full flex items-center justify-center text-white"
+            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}
+            aria-label="Abrir menu"
+          >
+            <Menu size={18} />
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero copy */}
+      <div className="relative z-10 flex-1 flex items-center px-5 md:px-10 pt-10 pb-16 md:pt-20 md:pb-24">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col gap-6 max-w-[640px]"
+        >
+          {/* Eyebrow — urgent badge */}
+          <motion.div variants={item} className="flex items-center gap-3 self-start">
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{
+                backgroundColor: "var(--electric)",
+                boxShadow: "0 0 12px var(--electric-glow), 0 0 4px var(--electric)",
+              }}
+              aria-hidden="true"
+            />
+            <span className="font-sans text-[11px] md:text-[12px] tracking-[0.28em] uppercase font-semibold text-white/85">
+              Guia digital · PDF · Áudio · Vídeo
+            </span>
+          </motion.div>
+
+          {/* Big emotional headline */}
+          <motion.h1
+            variants={item}
+            className="font-serif text-[clamp(2.8rem,8vw,5.25rem)] font-medium leading-[1.02] text-white text-balance"
+          >
+            Será que sou eu,<br />
+            <span
+              style={{
+                color: "var(--electric)",
+                fontStyle: "italic",
+                textShadow: "0 0 40px var(--electric-glow)",
+              }}
+            >
+              ou é TDAH?
+            </span>
+          </motion.h1>
+
+          {/* Sub-copy — direct, ADHD-brain friendly */}
+          <motion.p
+            variants={item}
+            className="font-sans text-[17px] md:text-[19px] leading-relaxed text-white/80 max-w-[520px] text-balance"
+          >
+            Você não é preguiçoso. Seu cérebro só funciona diferente.
+            Pare de girar na dúvida. Em 1 guia, você tem clareza sobre o que está acontecendo e o que fazer a seguir.
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div variants={item} className="flex flex-wrap gap-3 pt-2">
+            <a
+              href={HOTMART_CHECKOUT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackCTAClick("Hero - Quero ter clareza", HOTMART_CHECKOUT_URL)}
+              className="group inline-flex items-center gap-3 font-sans font-semibold text-[14px] tracking-wide px-7 py-4 rounded-full text-white transition-all duration-300 hover:scale-[1.03]"
+              style={{
+                backgroundColor: "var(--electric)",
+                boxShadow: "0 10px 36px var(--electric-glow), inset 0 1px 0 rgba(255,255,255,0.25)",
+              }}
+            >
+              Quero ter clareza
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+            <a
+              href="#identidade"
+              className="inline-flex items-center font-sans font-medium text-[13px] tracking-wide px-6 py-4 rounded-full text-white/90 transition-all duration-300 hover:bg-white/8"
+              style={{ border: "1px solid rgba(255,255,255,0.25)" }}
+            >
+              Ver se é pra mim
+            </a>
+          </motion.div>
+
+          {/* Trust row */}
+          <motion.div variants={item} className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-3">
+            {[
+              "Acesso imediato",
+              "Garantia de 7 dias",
+              "Pagamento Hotmart",
+            ].map((t) => (
+              <span key={t} className="flex items-center gap-1.5 font-sans text-[12px] text-white/60">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 6.5l2.5 2.5L10 3" stroke="var(--electric)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {t}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Launch price hint */}
+          <motion.p variants={item} className="font-sans text-[11.5px] tracking-[0.18em] uppercase font-semibold" style={{ color: "var(--electric)" }}>
+            Preço de lançamento · Sobe em breve
+          </motion.p>
+        </motion.div>
+      </div>
+
+      {/* Scroll hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.8 }}
+        className="relative z-10 hidden md:flex justify-center pb-8"
+        aria-hidden="true"
+      >
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          className="flex flex-col items-center gap-1.5"
+        >
+          <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-white/50">
+            Rolar
+          </span>
+          <div
+            className="w-px h-8"
+            style={{ background: "linear-gradient(to bottom, var(--electric), transparent)" }}
+          />
+        </motion.div>
       </motion.div>
 
-      {/* Gradient overlay to keep readability */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(to right, var(--background) 45%, transparent 100%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-20 md:py-0">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 min-h-screen md:min-h-0 md:py-24">
-
-          {/* Left: text content */}
-          <motion.div
-            style={{ y: textY }}
-            className="flex-1 flex flex-col gap-6 md:gap-7 order-1 md:order-1"
-          >
-            {/* Mobile: small avatar + name strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex md:hidden items-center gap-3"
-            >
-              <div
-                className="relative shrink-0 rounded-full overflow-hidden"
-                style={{
-                  width: 52,
-                  height: 52,
-                  border: "2px solid var(--sage-light)",
-                }}
-              >
-                <Image
-                  src="/images/foto_perfeita.jpeg"
-                  alt="Bárbara Leal Reis"
-                  fill
-                  className="object-cover object-top"
-                  sizes="52px"
-                />
-              </div>
-              <div>
-                <p className="font-sans text-xs font-semibold leading-tight" style={{ color: "var(--text-main)" }}>
-                  Bárbara Leal Reis
-                </p>
-                <p className="font-sans text-xs leading-tight" style={{ color: "var(--text-muted)" }}>
-                  Neuropsicóloga
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className="inline-flex items-center gap-2 self-start"
-            >
-              <span
-                className="text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full font-sans"
-                style={{
-                  backgroundColor: "var(--sage-ultra)",
-                  color: "var(--sage)",
-                  border: "1px solid var(--sage-light)",
-                }}
-              >
-                Guia em PDF &bull; &Aacute;udio &bull; V&iacute;deo
-              </span>
-            </motion.div>
-
-            {/* H1 */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.22 }}
-              className="font-serif text-5xl md:text-6xl lg:text-7xl text-balance leading-tight"
-              style={{ color: "var(--text-main)" }}
-            >
-              TDAH na Vida Adulta
-            </motion.h1>
-
-            {/* Subtitle — focused on suspicion/doubt */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.32 }}
-              className="font-serif text-xl md:text-2xl leading-relaxed max-w-lg"
-              style={{ color: "var(--lilac)" }}
-            >
-              Você abre a internet e dá de cara com vídeos sobre TDAH. Aos poucos, tudo parece fazer sentido. E aí surge a dúvida: será que eu tenho TDAH?
-            </motion.p>
-
-            {/* Pain paragraph */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.42 }}
-              className="font-sans text-base md:text-lg leading-relaxed space-y-2 max-w-md"
-              style={{ color: "var(--text-muted)" }}
-            >
-              <p>Se identificar com os sintomas não é o mesmo que ter um diagnóstico. Mas viver com essa incerteza, questionando o próprio funcionamento todos os dias, também não é fácil.</p>
-              <p>Se você se reconhece nisso, este guia foi feito para você.</p>
-            </motion.div>
-
-            {/* CTA — no price, clean */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.66 }}
-              className="pt-1 flex flex-col sm:flex-row items-start sm:items-center gap-4"
-            >
-              <a
-                href={HOTMART_CHECKOUT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackCTAClick("Hero - Eu quero ter clareza sobre o TDAH", HOTMART_CHECKOUT_URL)}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-sans font-semibold text-base tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-100"
-                style={{
-                  backgroundColor: "var(--sage)",
-                  color: "#ffffff",
-                  boxShadow: "0 4px 24px rgba(88,130,193,0.35)",
-                }}
-              >
-                Eu quero ter clareza sobre o TDAH
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-              <span className="font-sans text-xs" style={{ color: "var(--text-muted)" }}>
-                Preço de lançamento. Sobe em breve.
-              </span>
-            </motion.div>
-
-            {/* Trust signal */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.82 }}
-              className="text-sm font-sans"
-              style={{ color: "var(--text-muted)" }}
-            >
-              Pagamento seguro via Hotmart &bull; Acesso imediato &bull; Garantia de 7 dias
-            </motion.p>
-          </motion.div>
-
-          {/* Right: Barbara's photo */}
-          <motion.div
-            style={{ y: imageY }}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.2 }}
-            className="flex-1 flex justify-center md:justify-end order-2 md:order-2 w-full"
-          >
-            <div className="relative w-72 h-96 md:w-[420px] md:h-[560px]">
-              <div
-                className="absolute -inset-4 rounded-3xl"
-                style={{ backgroundColor: "var(--sage-ultra)" }}
-              />
-              <div
-                className="absolute -inset-2 rounded-3xl"
-                style={{ backgroundColor: "var(--sage-light)", opacity: 0.5 }}
-              />
-              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-
-                  src="/images/foto_perfeita.jpeg"
-                    alt="Bárbara Leal Reis, neuropsicóloga"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                  sizes="(max-width: 768px) 288px, 420px"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
     </section>
   )
 }

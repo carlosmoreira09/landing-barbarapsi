@@ -22,7 +22,7 @@ const fraunces = Fraunces({
 const BASE_URL = 'https://tdahnavidaadulta.barbaralealreis.com'
 
 export const viewport: Viewport = {
-  themeColor: '#5882C1',
+  themeColor: '#0B1A3A',
   width: 'device-width',
   initialScale: 1,
 }

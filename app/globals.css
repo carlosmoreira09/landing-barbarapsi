@@ -6,21 +6,30 @@
 :root {
   /* Brand colors */
   --background: #F7F8FB;
-  --foreground: #1E2A3A;
+  --foreground: #0B1A3A;
   --muted-bg: #EDF0F7;
 
-  /* Blue palette — main action color */
-  --sage: #5882C1;
+  /* NAVY — hero / deep emphasis */
+  --navy: #0B1A3A;
+  --navy-600: #122A5C;
+  --navy-500: #1E3A8A;
+
+  /* ELECTRIC — attention accent (ADHD trigger) */
+  --electric: #2EA8FF;
+  --electric-glow: rgba(46,168,255,0.45);
+
+  /* BLUE palette — main action color (kept for compatibility) */
+  --sage: #2563EB;
   --sage-light: #BFCFE8;
   --sage-ultra: #E8EEF8;
 
-  /* Blue accent — deeper blue tone */
-  --lilac: #4A6FA5;
+  /* Blue accent — deeper blue tone (kept for compatibility) */
+  --lilac: #1E3A8A;
   --lilac-light: #D6E4F7;
 
-  --warm-red: #C47171;
+  --warm-red: #E46C6C;
 
-  --text-main: #1E2A3A;
+  --text-main: #0B1A3A;
   --text-muted: #5C6478;
   --text-on-sage: #ffffff;
 
@@ -29,7 +38,7 @@
   --card-foreground: #1E2A3A;
   --popover: #ffffff;
   --popover-foreground: #1E2A3A;
-  --primary: #5882C1;
+  --primary: #2563EB;
   --primary-foreground: #ffffff;
   --secondary: #EDF0F7;
   --secondary-foreground: #1E2A3A;
@@ -41,7 +50,7 @@
   --destructive-foreground: #ffffff;
   --border: #D5DAE6;
   --input: #D5DAE6;
-  --ring: #5882C1;
+  --ring: #2563EB;
   --radius: 0.75rem;
 }
 
@@ -77,6 +86,10 @@
   --color-lilac: var(--lilac);
   --color-lilac-light: var(--lilac-light);
   --color-warm-red: var(--warm-red);
+  --color-navy: var(--navy);
+  --color-navy-600: var(--navy-600);
+  --color-navy-500: var(--navy-500);
+  --color-electric: var(--electric);
   --color-text-main: var(--text-main);
   --color-text-muted: var(--text-muted);
   --color-muted-bg: var(--muted-bg);
