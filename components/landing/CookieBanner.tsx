@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { LegalModal } from "./LegalModal"
+import { trackCookieConsent, trackModalOpen } from "@/components/GoogleAnalytics"
 
 function CookieDetailContent() {
   return (
@@ -136,6 +137,7 @@ export function CookieBanner() {
     try {
       localStorage.setItem(STORAGE_KEY, "accepted")
     } catch {}
+    trackCookieConsent("all")
     setVisible(false)
   }
 
@@ -143,6 +145,7 @@ export function CookieBanner() {
     try {
       localStorage.setItem(STORAGE_KEY, "declined")
     } catch {}
+    trackCookieConsent("essential")
     setVisible(false)
   }
 
@@ -199,7 +202,10 @@ export function CookieBanner() {
                   conformidade com a{" "}
                   <span className="font-medium" style={{ color: "var(--text-main)" }}>LGPD</span>.{" "}
                   <button
-                    onClick={() => setDetailOpen(true)}
+                    onClick={() => {
+                      setDetailOpen(true)
+                      trackModalOpen("Política de Cookies")
+                    }}
                     className="underline underline-offset-2 font-medium transition-opacity hover:opacity-70"
                     style={{ color: "var(--sage)", background: "none", border: "none", cursor: "pointer", padding: 0, fontSize: "inherit" }}
                   >

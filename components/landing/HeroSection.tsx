@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
+import { trackCTAClick } from "@/components/GoogleAnalytics"
 const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/U104539766E"
 
 export function HeroSection() {
@@ -150,6 +151,7 @@ export function HeroSection() {
                 href={HOTMART_CHECKOUT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackCTAClick("Hero - Eu quero ter clareza sobre o TDAH", HOTMART_CHECKOUT_URL)}
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-sans font-semibold text-base tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-100"
                 style={{
                   backgroundColor: "var(--sage)",

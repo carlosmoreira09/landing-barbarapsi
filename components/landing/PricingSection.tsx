@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
+import { trackCTAClick } from "@/components/GoogleAnalytics"
 
 const HOTMART_CHECKOUT_URL = "https://pay.hotmart.com/U104539766E"
 
@@ -70,6 +71,7 @@ export function PricingSection() {
               href={HOTMART_CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackCTAClick("Pricing - Garantir meu acesso", HOTMART_CHECKOUT_URL)}
               className="mt-8 w-full flex items-center justify-center gap-3 px-8 py-5 rounded-full font-sans font-semibold text-lg tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-100"
               style={{
                 backgroundColor: "var(--sage)",

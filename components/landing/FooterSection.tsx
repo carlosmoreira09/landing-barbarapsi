@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { LegalModal } from "./LegalModal"
+import { trackModalOpen } from "@/components/GoogleAnalytics"
 
 function PrivacyContent() {
   return (
@@ -212,14 +213,20 @@ export function FooterSection() {
           </p>
           <div className="flex gap-4">
             <button
-              onClick={() => setModal("privacy")}
+              onClick={() => {
+                setModal("privacy")
+                trackModalOpen("Política de Privacidade")
+              }}
               className="font-sans text-xs underline underline-offset-2 transition-opacity hover:opacity-70"
               style={{ color: "rgba(255,255,255,0.5)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
             >
               Pol&iacute;tica de Privacidade
             </button>
             <button
-              onClick={() => setModal("terms")}
+              onClick={() => {
+                setModal("terms")
+                trackModalOpen("Termos de Uso")
+              }}
               className="font-sans text-xs underline underline-offset-2 transition-opacity hover:opacity-70"
               style={{ color: "rgba(255,255,255,0.5)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
             >

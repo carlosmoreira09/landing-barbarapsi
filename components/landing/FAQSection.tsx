@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
+import { trackFAQOpen } from "@/components/GoogleAnalytics"
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -57,7 +58,11 @@ function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number 
       style={{ borderColor: "var(--border)" }}
     >
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          const willOpen = !open
+          setOpen(willOpen)
+          if (willOpen) trackFAQOpen(faq.q)
+        }}
         className="w-full flex items-center justify-between py-5 text-left gap-4 group"
         aria-expanded={open}
       >
