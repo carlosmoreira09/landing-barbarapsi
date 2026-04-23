@@ -1,26 +1,107 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand colors */
+  --background: #F7F8FB;
+  --foreground: #1E2A3A;
+  --muted-bg: #EDF0F7;
+
+  /* Blue palette — main action color */
+  --sage: #5882C1;
+  --sage-light: #BFCFE8;
+  --sage-ultra: #E8EEF8;
+
+  /* Blue accent — deeper blue tone */
+  --lilac: #4A6FA5;
+  --lilac-light: #D6E4F7;
+
+  --warm-red: #C47171;
+
+  --text-main: #1E2A3A;
+  --text-muted: #5C6478;
+  --text-on-sage: #ffffff;
+
+  /* shadcn tokens */
+  --card: #ffffff;
+  --card-foreground: #1E2A3A;
+  --popover: #ffffff;
+  --popover-foreground: #1E2A3A;
+  --primary: #5882C1;
+  --primary-foreground: #ffffff;
+  --secondary: #EDF0F7;
+  --secondary-foreground: #1E2A3A;
+  --muted: #EDF0F7;
+  --muted-foreground: #5C6478;
+  --accent: #D6E4F7;
+  --accent-foreground: #1E2A3A;
+  --destructive: #C47171;
+  --destructive-foreground: #ffffff;
+  --border: #D5DAE6;
+  --input: #D5DAE6;
+  --ring: #5882C1;
+  --radius: 0.75rem;
 }
 
 @theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Fraunces', 'Georgia', serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom brand tokens */
+  --color-sage: var(--sage);
+  --color-sage-light: var(--sage-light);
+  --color-sage-ultra: var(--sage-ultra);
+  --color-lilac: var(--lilac);
+  --color-lilac-light: var(--lilac-light);
+  --color-warm-red: var(--warm-red);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-muted-bg: var(--muted-bg);
+  --color-border: var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-main);
+    background-color: var(--background);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--text-main);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
 }
