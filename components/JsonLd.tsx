@@ -7,10 +7,6 @@ const personSchema = {
   description:
     'Neuropsicóloga e psicóloga clínica e do esporte, especialista em TDAH e neurodivergência. Mestre em Psicologia Clínica pela PUC-Rio.',
   url: BASE_URL,
-  sameAs: [
-    'https://www.instagram.com/psi.barbarareis',
-    'https://www.facebook.com/psi.barbarareis',
-  ],
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',

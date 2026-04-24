@@ -143,19 +143,6 @@ export const menuCategories: MenuCategory[] = [
         ],
         accent: "electric",
       },
-      {
-        id: "instagram",
-        eyebrow: "Acompanhe",
-        title: "@psi.barbarareis",
-        headline: "Conteúdo gratuito no Instagram.",
-        body: "Se quiser sentir o tom antes de comprar, dá uma olhada no Instagram. Posts frequentes sobre TDAH, neurodivergência e saúde mental.",
-        bullets: [
-          "Conteúdo educativo sobre TDAH adulto",
-          "Desmistificação de diagnósticos",
-          "Recortes de prática clínica e estudos recentes",
-        ],
-        accent: "electric",
-      },
     ],
   },
   {

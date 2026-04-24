@@ -161,35 +161,6 @@ export function FooterSection() {
               Psic&oacute;loga
             </p>
           </div>
-          <div className="flex items-center gap-5">
-            <a
-              href="https://instagram.com/psi.barbarareis"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-sm transition-opacity hover:opacity-70"
-              style={{ color: "rgba(255,255,255,0.8)" }}
-              aria-label="Instagram de Bárbara Leal Reis"
-            >
-              Instagram
-            </a>
-            <a
-              href="mailto:barbareispsi@gmail.com"
-              className="font-sans text-sm transition-opacity hover:opacity-70"
-              style={{ color: "rgba(255,255,255,0.8)" }}
-            >
-              barbareispsi@gmail.com
-            </a>
-            <a
-              href="https://wa.me/5522997363220"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-sm transition-opacity hover:opacity-70"
-              style={{ color: "rgba(255,255,255,0.8)" }}
-              aria-label="WhatsApp de Bárbara Leal Reis"
-            >
-              WhatsApp
-            </a>
-          </div>
         </div>
 
         {/* Divider */}

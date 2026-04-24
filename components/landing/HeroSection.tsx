@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Menu, Instagram } from "lucide-react"
+import { Menu } from "lucide-react"
 import { HOTMART_CHECKOUT_URL, menuCategories } from "@/lib/nav-content"
 import { NavDropdown } from "@/components/landing/NavDropdown"
 import { MobileMenu } from "@/components/landing/MobileMenu"
@@ -98,15 +98,6 @@ export function HeroSection() {
 
         {/* Right: CTA + mobile toggle */}
         <div className="flex items-center gap-3">
-          <a
-            href="https://instagram.com/psi.barbarareis"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram @psi.barbarareis"
-            className="hidden md:flex text-white/70 hover:text-white transition-colors"
-          >
-            <Instagram size={18} strokeWidth={1.5} />
-          </a>
           <a
             href={HOTMART_CHECKOUT_URL}
             target="_blank"
