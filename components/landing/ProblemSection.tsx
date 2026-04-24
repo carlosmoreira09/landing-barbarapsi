@@ -153,7 +153,7 @@ export function ProblemSection() {
               mas não gera critério.&rdquo;
             </blockquote>
             <p className="font-sans text-base mt-4" style={{ color: "var(--text-muted)" }}>
-              Identificação não é diagnóstico. Mas clareza muda tudo.
+              Identificação não é diagnóstico. Mas ter clareza não custa caro.
             </p>
           </FadeIn>
         </div>
