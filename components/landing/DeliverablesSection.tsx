@@ -27,8 +27,8 @@ const deliverables = [
         <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
-    title: "Guia completo em PDF",
-    desc: "Organizado por módulos, para consumo no seu ritmo e consulta quando precisar.",
+    title: "PDF completo",
+    desc: "Conteúdo estruturado para você ler no seu tempo, com explicações claras e aprofundadas.",
   },
   {
     icon: (
@@ -37,8 +37,8 @@ const deliverables = [
         <path d="M11 10l7 4-7 4V10z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
       </svg>
     ),
-    title: "Versão em áudio",
-    desc: "Para ouvir enquanto caminha, dirige ou descansa. Sem precisar olhar para uma tela.",
+    title: "Áudio",
+    desc: "Para ouvir quando quiser, ideal para absorver o conteúdo de forma mais leve no dia a dia.",
   },
   {
     icon: (
@@ -47,17 +47,8 @@ const deliverables = [
         <path d="M11 10.5l6 3.5-6 3.5V10.5z" fill="currentColor" />
       </svg>
     ),
-    title: "Versão em vídeo",
-    desc: "Ideal para consumo visual. Narrada com tecnologia de áudio para facilitar a acessibilidade.",
-  },
-  {
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <path d="M14 3l2.5 6 6.5.5-5 4.5 1.5 6.5L14 17l-5.5 3.5 1.5-6.5L5 10l6.5-.5L14 3z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-      </svg>
-    ),
-    title: "Bônus práticos",
-    desc: "Materiais extras para aplicar o conteúdo no dia a dia com mais facilidade.",
+    title: "Vídeo",
+    desc: "Uma versão mais visual e acessível, facilitando a compreensão dos pontos principais.",
   },
 ]
 
@@ -126,6 +117,19 @@ export function DeliverablesSection() {
               <strong style={{ color: "var(--text-main)" }}>Transparência importante:</strong> as versões em áudio e vídeo foram produzidas com inteligência artificial, utilizando minha imagem e voz. Todo o conteúdo é 100% meu, mas a experiência pode ser diferente de um vídeo gravado de forma tradicional. Preferi deixar isso claro para que você saiba exatamente o que esperar antes da compra.
             </p>
           </div>
+        </FadeIn>
+
+        {/* Closing statement */}
+        <FadeIn delay={0.65} className="mt-14 text-center">
+          <p className="font-serif text-2xl md:text-3xl leading-relaxed" style={{ color: "var(--text-main)" }}>
+            A dúvida não desaparece sozinha.
+          </p>
+          <p className="font-serif text-2xl md:text-3xl mt-2 leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            Mas quando você entende o que está acontecendo, ela deixa de te paralisar.
+          </p>
+          <p className="font-sans text-lg mt-4" style={{ color: "var(--sage)" }}>
+            Você ganha clareza, direção, critério, e começa a agir com mais segurança.
+          </p>
         </FadeIn>
       </div>
     </section>

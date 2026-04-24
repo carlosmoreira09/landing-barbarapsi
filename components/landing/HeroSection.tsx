@@ -167,8 +167,13 @@ export function HeroSection() {
             variants={item}
             className="font-sans text-[17px] md:text-[19px] leading-relaxed text-white/80 max-w-[520px] text-balance"
           >
-            Você não é preguiçoso. Seu cérebro só funciona diferente.
-            Pare de girar na dúvida. Em 1 guia, você tem clareza sobre o que está acontecendo e o que fazer a seguir.
+            Você abre a internet e dá de cara com diversos vídeos sobre TDAH. Aos poucos, tudo parece fazer sentido: a dificuldade de se concentrar, as distrações constantes, a sensação de estar preso em um loop de autocobrança e procrastinação… é como se alguém estivesse descrevendo você.
+          </motion.p>
+          <motion.p
+            variants={item}
+            className="font-sans text-[17px] md:text-[19px] leading-relaxed text-white/80 max-w-[520px] text-balance"
+          >
+            E aí surge a dúvida: será que eu tenho TDAH? Se você se reconhece nisso, este guia foi feito para você. Para transformar dúvida em clareza e confusão em direção.
           </motion.p>
 
           {/* CTAs */}

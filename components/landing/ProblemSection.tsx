@@ -6,10 +6,9 @@ import { trackCTAClick } from "@/components/GoogleAnalytics"
 import { HOTMART_CHECKOUT_URL } from "@/lib/nav-content"
 
 const painPoints = [
-  "Você viu um vídeo sobre TDAH, se identificou com quase tudo, e agora não consegue parar de pensar nisso. Mas, ao mesmo tempo, não tem certeza. Talvez seja ansiedade. Talvez seja só cansaço acumulado.",
   "Você começa várias coisas e não termina. Sabe exatamente o que precisa fazer, mas trava mesmo assim.",
   "Esquece compromissos, perde o fio das conversas, vive no piloto automático acompanhado de culpa.",
-  "Já foi chamado de preguiçoso, irresponsável ou intenso demais. E, no fundo, uma parte de você ainda acredita nisso.",
+  "Já foi chamado de preguiçoso, irresponsável ou \"intenso demais\". E, no fundo, uma parte de você ainda acredita nisso.",
 ]
 
 const doubts = ["É TDAH?", "É ansiedade?", "Sobrecarga?", "Exaustão mental?"]
@@ -56,7 +55,7 @@ export function ProblemSection() {
               href={HOTMART_CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackCTAClick("Problem - Quero entender como minha mente funciona", HOTMART_CHECKOUT_URL)}
+              onClick={() => trackCTAClick("Problem - Quero adquirir o guia", HOTMART_CHECKOUT_URL)}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-sans font-semibold text-base tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-100"
               style={{
                 backgroundColor: "var(--sage)",
@@ -64,7 +63,7 @@ export function ProblemSection() {
                 boxShadow: "0 4px 24px rgba(37,99,235,0.3)",
               }}
             >
-              Quero entender como minha mente funciona
+              QUERO ADQUIRIR O GUIA
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -141,7 +140,7 @@ export function ProblemSection() {
                 ))}
               </div>
               <p className="font-sans text-base text-center" style={{ color: "var(--text-muted)" }}>
-                E agora você não sabe: vale a pena buscar ajuda? Será que é exagero? Ou será que isso finalmente explica o que está acontecendo com você?
+                E agora você não sabe: vale a pena buscar ajuda? Será que é exagero? Ou será que isso finalmente explica o que está acontecendo com você? Será que realmente é TDAH ou outra coisa?
               </p>
             </div>
           </FadeIn>

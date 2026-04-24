@@ -52,6 +52,7 @@ const credentials = [
 ]
 
 const registrations = [
+  { flag: "🇧🇷", label: "CRP 05/56240", sub: "Conselho Regional de Psicologia, Rio de Janeiro" },
   { flag: "🇦🇺", label: "ACA Level 4, n. 30303", sub: "Australia Counselling Association, Counsellor registrada" },
   { flag: "🇦🇺", label: "AHPRA, PSY0004022953", sub: "Australian Health Practitioner Regulation Agency, Provisional Psychologist" },
 ]
@@ -108,13 +109,13 @@ export function AboutSection() {
 
             <FadeIn delay={0.22}>
               <p className="font-sans text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                Com mais de 8 anos de experiência clínica, atuo com avaliação neuropsicológica e atendimento de pessoas neurodivergentes, especialmente pessoas com TDAH e Transtorno do Espectro Autista (TEA). Ao longo da minha prática, já realizei mais de 80 avaliações neuropsicológicas completas, com emissão de laudos e foco em diagnósticos precisos e baseados em evidências.
+                Com mais de 8 anos de experiência clínica, Bárbara atua com avaliação neuropsicológica e atendimento de pessoas neurodivergentes, especialmente pessoas com TDAH e Transtorno do Espectro Autista (TEA). Ao longo da sua prática, já realizou mais de 80 avaliações neuropsicológicas completas, com emissão de laudos e foco em diagnósticos precisos e baseados em evidências.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.30}>
               <p className="font-sans text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                Na prática clínica, também atuo com mulheres em contextos de violências e relacionamentos abusivos, utilizando a Terapia Cognitivo-Comportamental (TCC) como base. Meu trabalho é marcado por uma abordagem acolhedora, estruturada e orientada pela ciência, sempre adaptada às necessidades individuais de cada pessoa.
+                Na prática clínica, também atua com mulheres em contextos de violências e relacionamentos abusivos, utilizando a Terapia Cognitivo-Comportamental (TCC) como base. Seu trabalho é marcado por uma abordagem acolhedora, estruturada e orientada pela ciência, sempre adaptada às necessidades individuais de cada pessoa.
               </p>
             </FadeIn>
 

@@ -87,6 +87,12 @@ export function ProductIntroSection() {
                 </FadeIn>
               ))}
             </div>
+
+            <FadeIn delay={0.5}>
+              <p className="font-sans text-base leading-relaxed mt-4" style={{ color: "var(--text-muted)" }}>
+                O objetivo é te ajudar a entender melhor o TDAH antes de tirar conclusões por conta própria, e te direcionar sobre como lidar com essa possibilidade de forma mais segura, clara e consciente.
+              </p>
+            </FadeIn>
           </div>
         </div>
       </div>
