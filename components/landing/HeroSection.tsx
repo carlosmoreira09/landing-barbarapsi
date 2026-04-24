@@ -150,7 +150,7 @@ export function HeroSection() {
             variants={item}
             className="font-serif text-[clamp(2.8rem,8vw,5.25rem)] font-medium leading-[1.02] text-white text-balance"
           >
-            Será que sou eu,<br />
+            Será que é<br />
             <span
               style={{
                 color: "var(--electric)",
@@ -158,7 +158,7 @@ export function HeroSection() {
                 textShadow: "0 0 40px var(--electric-glow)",
               }}
             >
-              ou é TDAH?
+              TDAH?
             </span>
           </motion.h1>
 
@@ -173,7 +173,15 @@ export function HeroSection() {
             variants={item}
             className="font-sans text-[17px] md:text-[19px] leading-relaxed text-white/80 max-w-[520px] text-balance"
           >
-            E aí surge a dúvida: será que eu tenho TDAH? Se você se reconhece nisso, este guia foi feito para você. Para transformar dúvida em clareza e confusão em direção.
+            E aí surge a dúvida: será que eu tenho TDAH? <br /> Se você se reconhece nisso este guia foi feito para   <span
+              style={{
+                color: "var(--electric)",
+                fontStyle: "italic",
+                textShadow: "0 0 40px var(--electric-glow)",
+              }}
+          >
+             VOCÊ
+            </span>. Para transformar dúvida em clareza e confusão em direção.
           </motion.p>
 
           {/* CTAs */}
