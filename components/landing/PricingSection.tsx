@@ -38,7 +38,7 @@ export function PricingSection() {
           </p>
           <h2 className="font-serif text-[clamp(2rem,5vw,3.25rem)] leading-[1.08] text-balance" style={{ color: "var(--navy)" }}>
             A dúvida não some sozinha.<br />
-            <span style={{ color: "var(--electric)", fontStyle: "italic" }}>Mas ter clareza não custa caro.</span>
+            <span style={{ color: "var(--electric)", fontStyle: "italic", fontSize: 26 }}>Mas ter clareza não custa caro.</span>
           </h2>
         </FadeIn>
 
