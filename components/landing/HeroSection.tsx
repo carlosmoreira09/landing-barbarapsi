@@ -189,13 +189,6 @@ export function HeroSection() {
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <a
-              href="#identidade"
-              className="inline-flex items-center font-sans font-medium text-[13px] tracking-wide px-6 py-4 rounded-full text-white/90 transition-all duration-300 hover:bg-white/8"
-              style={{ border: "1px solid rgba(255,255,255,0.25)" }}
-            >
-              Ver se é pra mim
-            </a>
           </motion.div>
 
           {/* Trust row */}
