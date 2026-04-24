@@ -171,7 +171,7 @@ export function NavDropdown({ category }: NavDropdownProps) {
                       boxShadow: "0 6px 20px var(--electric-glow)",
                     }}
                   >
-                    Quero o guia
+                    QUERO O GUIA SOBRE O TDAH
                   </a>
                 </div>
               </div>

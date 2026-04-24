@@ -109,7 +109,7 @@ export function HeroSection() {
               boxShadow: "0 6px 20px var(--electric-glow)",
             }}
           >
-            Quero o guia
+            QUERO O GUIA SOBRE O TDAH
           </a>
           <button
             onClick={() => setMobileOpen(true)}
@@ -184,7 +184,7 @@ export function HeroSection() {
                 boxShadow: "0 10px 36px var(--electric-glow), inset 0 1px 0 rgba(255,255,255,0.25)",
               }}
             >
-              Quero ter clareza
+              EU QUERO TER CLAREZA SOBRE O TDAH
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
