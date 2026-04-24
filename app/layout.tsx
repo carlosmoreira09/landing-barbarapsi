@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: '%s, Bárbara Leal Reis',
   },
   description:
-    'Você não é preguiçoso. Seu cérebro só funciona diferente. Guia digital com clareza e estratégias práticas sobre TDAH para adultos, criado pela neuropsicóloga Bárbara Leal Reis (CRP 05/56240). R$ 47.',
+    'Você não é preguiçoso. Seu cérebro só funciona diferente. Guia digital com clareza e estratégias práticas sobre TDAH para adultos, criado pela neuropsicóloga Bárbara Leal Reis. R$ 47.',
   keywords: [
     'TDAH adulto',
     'diagnóstico TDAH',

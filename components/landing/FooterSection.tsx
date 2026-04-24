@@ -158,7 +158,7 @@ export function FooterSection() {
               B&aacute;rbara Leal Reis
             </p>
             <p className="font-sans text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Psic&oacute;loga &bull; CRP 05/56240
+              Psic&oacute;loga
             </p>
           </div>
           <div className="flex items-center gap-5">

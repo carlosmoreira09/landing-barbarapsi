@@ -135,10 +135,9 @@ export const menuCategories: MenuCategory[] = [
         id: "registros",
         eyebrow: "Registros",
         title: "Registro profissional",
-        headline: "Atuação validada nos 2 países.",
+        headline: "Atuação validada na Austrália.",
         body: "Em 2025 mudou para a Austrália, validou o diploma e hoje atua como Counsellor e Provisional Psychologist registrada.",
         bullets: [
-          "CRP 05/56240 — Conselho Regional de Psicologia, Rio de Janeiro",
           "ACA Level 4, n. 30303 — Australia Counselling Association",
           "AHPRA PSY0004022953 — Provisional Psychologist, Austrália",
         ],

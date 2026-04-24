@@ -5,22 +5,13 @@ const personSchema = {
   name: 'Bárbara Leal Reis',
   jobTitle: 'Neuropsicóloga e Psicóloga',
   description:
-    'Neuropsicóloga e psicóloga clínica e do esporte, especialista em TDAH e neurodivergência. CRP 05/56240. Mestre em Psicologia Clínica pela PUC-Rio.',
+    'Neuropsicóloga e psicóloga clínica e do esporte, especialista em TDAH e neurodivergência. Mestre em Psicologia Clínica pela PUC-Rio.',
   url: BASE_URL,
   sameAs: [
     'https://www.instagram.com/psi.barbarareis',
     'https://www.facebook.com/psi.barbarareis',
   ],
   hasCredential: [
-    {
-      '@type': 'EducationalOccupationalCredential',
-      credentialCategory: 'Registro Profissional',
-      name: 'CRP 05/56240',
-      recognizedBy: {
-        '@type': 'Organization',
-        name: 'Conselho Regional de Psicologia — 5ª Região (RJ)',
-      },
-    },
     {
       '@type': 'EducationalOccupationalCredential',
       credentialCategory: 'Mestrado',
@@ -69,7 +60,7 @@ const webPageSchema = {
   '@type': 'WebPage',
   name: 'TDAH na Vida Adulta, Bárbara Leal Reis',
   description:
-    'Clareza e estratégias práticas entre a suspeita e o diagnóstico. Um guia técnico e prático criado por Bárbara Leal Reis, psicóloga CRP 05/56240.',
+    'Clareza e estratégias práticas entre a suspeita e o diagnóstico. Um guia técnico e prático criado por Bárbara Leal Reis, neuropsicóloga.',
   url: BASE_URL,
   inLanguage: 'pt-BR',
   publisher: {

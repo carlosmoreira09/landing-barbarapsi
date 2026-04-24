@@ -84,7 +84,7 @@ export function HeroSection() {
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="font-serif text-[15px] text-white">Bárbara Leal Reis</span>
             <span className="font-sans text-[10.5px] tracking-[0.18em] uppercase text-white/55">
-              Neuropsicóloga · CRP 05/56240
+              Neuropsicóloga
             </span>
           </div>
         </a>
