@@ -2,8 +2,6 @@ import { HeroSection } from "@/components/landing/HeroSection"
 import { ProblemSection } from "@/components/landing/ProblemSection"
 import { ProductIntroSection } from "@/components/landing/ProductIntroSection"
 import { NotIsSection } from "@/components/landing/NotIsSection"
-import { LearnSection } from "@/components/landing/LearnSection"
-import { StrategiesSection } from "@/components/landing/StrategiesSection"
 import { DeliverablesSection } from "@/components/landing/DeliverablesSection"
 import { PricingSection } from "@/components/landing/PricingSection"
 import { AboutSection } from "@/components/landing/AboutSection"
@@ -26,12 +24,6 @@ export default function LandingPage() {
       </SectionTracker>
       <SectionTracker name="NotIs">
         <NotIsSection />
-      </SectionTracker>
-      <SectionTracker name="Learn">
-        <LearnSection />
-      </SectionTracker>
-      <SectionTracker name="Strategies">
-        <StrategiesSection />
       </SectionTracker>
       <SectionTracker name="Deliverables">
         <DeliverablesSection />

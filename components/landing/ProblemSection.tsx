@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import React, { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { trackCTAClick } from "@/components/GoogleAnalytics"
 import { HOTMART_CHECKOUT_URL } from "@/lib/nav-content"
@@ -10,8 +10,6 @@ const painPoints = [
   "Esquece compromissos, perde o fio das conversas, vive no piloto automático acompanhado de culpa.",
   "Já foi chamado de preguiçoso, irresponsável ou \"intenso demais\". E, no fundo, uma parte de você ainda acredita nisso.",
 ]
-
-const doubts = ["É TDAH?", "É ansiedade?", "Sobrecarga?", "Exaustão mental?"]
 
 function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -32,34 +30,126 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
 export function ProblemSection() {
   return (
     <>
-      {/* Context section */}
+      {/* Audience banner section */}
       <section id="problema" className="py-20 md:py-28" style={{ backgroundColor: "var(--background)" }}>
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <FadeIn>
-            <p className="font-sans text-lg md:text-xl leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              O TDAH virou um dos assuntos mais falados na internet e, de repente, muita gente começa a se identificar. Isso gera dúvida. E a dúvida, muitas vezes, gera ainda mais ansiedade.
+            <div
+              className="rounded-3xl p-8 md:p-12"
+              style={{
+                background: "linear-gradient(135deg, var(--sage-ultra) 0%, var(--lilac-light) 100%)",
+                border: "1px solid var(--sage-light)",
+              }}
+            >
+              <p className="font-serif text-2xl md:text-3xl mb-8" style={{ color: "var(--text-main)" }}>
+                Ele é direcionado para quem:
+              </p>
+
+              <div className="space-y-5 mb-8">
+                {[
+                  "Suspeita de TDAH e quer entender melhor o próprio funcionamento antes de tomar qualquer decisão;",
+                  "Está em dúvida entre TDAH, ansiedade ou outras possibilidades, e precisa de clareza para diferenciar;",
+                  "Já recebeu o diagnóstico, mas ainda se sente perdido sobre como lidar com isso na prática.",
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <span
+                      className="mt-1 flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "var(--sage)", minWidth: "1.5rem" }}
+                      aria-hidden="true"
+                    >
+                      <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                        <path d="M1 5l3.5 3.5L11 1" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                    <p className="font-sans text-lg leading-relaxed" style={{ color: "var(--text-main)" }}>
+                      {item}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div
+                className="mt-8 pt-8"
+                style={{ borderTop: "1px solid var(--sage-light)" }}
+              >
+                <p className="font-sans text-base leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                  O objetivo é te ajudar a entender melhor o TDAH antes de tirar conclusões por conta própria, e te direcionar sobre como lidar com essa possibilidade de forma mais segura, clara e consciente.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Pain points section */}
+      <section className="py-20 md:py-28" style={{ backgroundColor: "var(--muted-bg)" }}>
+        <div className="max-w-4xl mx-auto px-6 md:px-12">
+
+          {/* Banner card */}
+          <FadeIn>
+            <div
+              className="rounded-3xl p-8 md:p-12"
+              style={{
+                background: "linear-gradient(135deg, var(--lilac-light) 0%, var(--sage-ultra) 100%)",
+                border: "1px solid var(--lilac)",
+              }}
+            >
+              <p className="font-serif text-2xl md:text-3xl mb-8" style={{ color: "var(--text-main)" }}>
+                Você se reconhece aqui?
+              </p>
+
+              <div className="space-y-5">
+                {painPoints.map((point, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                    className="flex items-start gap-4"
+                  >
+                    <span
+                      className="mt-1 shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: "var(--lilac)", minWidth: "1.5rem" }}
+                      aria-hidden="true"
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path d="M2 2l6 6M8 2l-6 6" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                    <p className="font-sans text-lg leading-relaxed" style={{ color: "var(--text-main)" }}>
+                      {point}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Doubt text */}
+          <FadeIn delay={0.2} className="mt-10">
+            <p className="font-sans text-lg md:text-xl leading-relaxed text-center" style={{ color: "var(--text-muted)" }}>
+              E agora você não sabe: vale a pena buscar ajuda? Será que é exagero? Ou será que isso finalmente explica o que está acontecendo com você? Será que realmente é TDAH ou outra coisa?
             </p>
           </FadeIn>
-          <FadeIn delay={0.12} className="mt-6">
-            <p className="font-sans text-lg md:text-xl leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              Se reconhecer em alguns sintomas não é o mesmo que ter um diagnóstico. Mas também não é fácil ficar preso nessa incerteza, sem saber se o que você sente tem um nome, ou se vale a pena buscar ajuda.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.22} className="mt-8">
-            <p className="font-sans text-xl md:text-2xl font-semibold" style={{ color: "var(--text-main)" }}>
-              Este guia foi feito principalmente para quem suspeita de TDAH e precisa de mais clareza antes de dar o próximo passo, mas também para quem já recebeu o diagnóstico e ainda se sente perdido no processo.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.42} className="mt-10">
+
+          {/* CTA */}
+          <FadeIn delay={0.35} className="mt-10 flex justify-center">
             <a
               href={HOTMART_CHECKOUT_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCTAClick("Problem - Quero adquirir o guia", HOTMART_CHECKOUT_URL)}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-sans font-semibold text-base tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-100"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-sans font-semibold text-base tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-100 text-white"
               style={{
                 backgroundColor: "var(--sage)",
-                color: "#ffffff",
                 boxShadow: "0 4px 24px rgba(37,99,235,0.3)",
               }}
             >
@@ -69,92 +159,7 @@ export function ProblemSection() {
               </svg>
             </a>
           </FadeIn>
-        </div>
-      </section>
 
-      {/* Pain points section */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: "var(--muted-bg)" }}>
-        <div className="max-w-4xl mx-auto px-6 md:px-12">
-          <FadeIn>
-            <p
-              className="font-sans text-sm font-semibold tracking-widest uppercase mb-10"
-              style={{ color: "var(--sage)" }}
-            >
-              Você se reconhece aqui?
-            </p>
-          </FadeIn>
-
-          <div className="space-y-0">
-            {painPoints.map((point, i) => (
-              <FadeIn key={i} delay={i * 0.09}>
-                <div
-                  className="flex items-start gap-5 py-5 border-b font-sans text-lg md:text-xl leading-relaxed"
-                  style={{
-                    borderColor: "var(--border)",
-                    color: "var(--text-main)",
-                  }}
-                >
-                  <span
-                    className="rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "var(--lilac)", width: "6px", height: "6px", marginTop: "12px" }}
-                    aria-hidden="true"
-                  />
-                  {point}
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-
-          {/* The doubt card */}
-          <FadeIn delay={0.3} className="mt-16">
-            <div
-              className="rounded-3xl p-8 md:p-12"
-              style={{ backgroundColor: "var(--lilac-light)" }}
-            >
-              <p className="font-serif text-2xl md:text-3xl text-center mb-4" style={{ color: "var(--text-main)" }}>
-                E a pergunta que não sai da cabeça:
-              </p>
-              <p
-                className="font-serif text-4xl md:text-5xl text-center font-semibold mb-8"
-                style={{ color: "var(--lilac)" }}
-              >
-                Será que sou eu, ou é TDAH?
-              </p>
-              <div className="flex flex-wrap justify-center gap-3 mb-8">
-                {doubts.map((d, i) => (
-                  <motion.span
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.12 }}
-                    className="px-5 py-2.5 rounded-full font-sans text-base font-medium"
-                    style={{
-                      backgroundColor: "#ffffff",
-                      color: "var(--text-main)",
-                      border: "1px solid var(--border)",
-                    }}
-                  >
-                    {d}
-                  </motion.span>
-                ))}
-              </div>
-              <p className="font-sans text-base text-center" style={{ color: "var(--text-muted)" }}>
-                E agora você não sabe: vale a pena buscar ajuda? Será que é exagero? Ou será que isso finalmente explica o que está acontecendo com você? Será que realmente é TDAH ou outra coisa?
-              </p>
-            </div>
-          </FadeIn>
-
-          {/* Pull quote */}
-          <FadeIn delay={0.2} className="mt-16 text-center">
-            <blockquote className="font-serif text-2xl md:text-3xl leading-relaxed italic" style={{ color: "var(--text-main)" }}>
-              &ldquo;A internet gera identificação,<br className="hidden md:block" />
-              mas não gera critério.&rdquo;
-            </blockquote>
-            <p className="font-sans text-base mt-4" style={{ color: "var(--text-muted)" }}>
-              Identificação não é diagnóstico. Mas clareza muda tudo.
-            </p>
-          </FadeIn>
         </div>
       </section>
     </>
