@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import './globals.css'
 import { CookieBanner } from '@/components/landing/CookieBanner'
 import { GoogleAnalytics } from '@/components/GoogleAnalytics'
+import { MetaPixel } from '@/components/MetaPixel'
 import { JsonLd } from '@/components/JsonLd'
 
 const inter = Inter({
@@ -116,6 +117,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
+        <MetaPixel />
       </body>
     </html>
   )
