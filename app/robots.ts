@@ -15,3 +15,6 @@ export default function robots(): MetadataRoute.Robots {
     host: BASE_URL,
   }
 }
+
+// Sem servidor (output: export) a rota de metadata precisa ser gerada no build.
+export const dynamic = 'force-static'
