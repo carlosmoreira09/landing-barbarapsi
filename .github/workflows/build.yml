@@ -11,22 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: 'npm'
+          cache: 'pnpm'
 
-      - name: Install dependencies with retry
-        run: |
-          for i in {1..3}; do
-            npm ci --prefer-offline --no-audit --progress=false && break
-            echo "npm ci failed, retrying in 30 seconds..."
-            sleep 30
-          done
+      - run: pnpm install --frozen-lockfile
 
       - name: Check for vulnerabilities
-        run: npm audit --audit-level=moderate
-        # This will return non-zero exit code if vulnerabilities are found at moderate level or higher
-        # Thus will fail the workflow and block the merge before building
+        run: pnpm audit --audit-level=moderate
+        # Falha com vulnerabilidade moderada ou acima e bloqueia o merge.
 
-      - run: npm run build
+      - run: pnpm run build
