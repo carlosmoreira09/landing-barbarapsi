@@ -27,3 +27,6 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   }
 }
+
+// Sem servidor (output: export) a rota de metadata precisa ser gerada no build.
+export const dynamic = 'force-static'

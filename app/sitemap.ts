@@ -12,3 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
+
+// Sem servidor (output: export) a rota de metadata precisa ser gerada no build.
+export const dynamic = 'force-static'
